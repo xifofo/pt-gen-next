@@ -333,8 +333,8 @@ export const generateTmdbFormat = (data: any) => {
   lines.push(`❁ Production Countries:　${data.countries?.length ? data.countries.join(" / ") : "N/A"}`);
   lines.push(`❁ Rating:　${data.tmdb_rating || "N/A"}`);
   if (data.tmdb_id) {
-    const mediaType = isMovie ? "movie" : "tv";
-    lines.push(`❁ TMDB Link:　https://www.themoviedb.org/${mediaType}/${data.tmdb_id}/`);
+    const tmdbPath = String(data.tmdb_id).replace(/^\/+|\/+$/g, "");
+    lines.push(`❁ TMDB Link:　https://www.themoviedb.org/${tmdbPath}/`);
   }
   if (data.imdb_link) lines.push(`❁ IMDb Link:　${data.imdb_link}`);
   if (data.directors?.length) {
